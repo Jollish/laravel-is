@@ -1,4 +1,7 @@
-<table class="table table-hover">
+@include('partials.header')
+<x-nav/>
+<div class="flex items-center">
+<table class="table table-hover text-center">
   <thead>
     <tr>
       <th scope="col">ID</th>
@@ -26,3 +29,5 @@
   </tbody>
   @endforeach
 </table>
+</div>
+@include('partials.footer')

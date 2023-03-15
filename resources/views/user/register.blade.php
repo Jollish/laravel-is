@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
     <title>Register</title>
 </head>
 <body>
@@ -24,6 +23,9 @@
               <form action="/store" method="POST">
                 @csrf
                 {{-- Name --}}
+                @error('name')
+                <p>Name Already Exists!</p>
+                @enderror
                 <div class="relative mb-6" data-te-input-wrapper-init>
                     <input
                       type="text"
@@ -36,11 +38,12 @@
                       >Name
                     </label>
                   </div>
-                  @error('name')
-                    <p>Name Already Exists!</p>
-                  @enderror
 
                 <!-- Email input -->
+                
+                @error('email')
+                <p>Email Already Exists!</p>
+                @enderror
                 <div class="relative mb-6" data-te-input-wrapper-init>
                   <input
                     type="text"
@@ -53,10 +56,7 @@
                     >Email address
                   </label>
                 </div>
-                  @error('email')
-                    <p>Email Already Exists!</p>
-                  @enderror
-      
+
                 <!-- Password input -->
                 <div class="relative mb-6" data-te-input-wrapper-init>
                   <input
@@ -100,12 +100,14 @@
                   Sign in
                 </button>
                 
-                <button
-                  class="inline-block w-full rounded bg-primary px-7 pt-3 pb-2.5 text-sm font-medium uppercase leading-normal text-primary-400 shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
-                  data-te-ripple-init
-                  data-te-ripple-color="light">
-                  Login
-                </button>
+                <p class="mt-2 mb-0 pt-1 text-sm font-semibold">
+                  Already have an account?
+                  <a
+                  href="/login"
+                  class="text-danger transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700"
+                  >Login</a
+                  >
+              </p>
       
                 <div
                   class="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
